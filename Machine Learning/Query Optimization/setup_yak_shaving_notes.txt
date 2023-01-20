@@ -29,3 +29,7 @@ indexing started running!
 indexing is failing: possibly due to cluster GC, and job is getting killed
     drop parallelism in bulk-index to 2, batch size to 1000
     this worked! both indexes are populated
+
+a command like this works for indexing:
+
+time bin/bulk-index --index msmarco-document.defaults --config config/msmarco-document-index.defaults.json data/msmarco-document-index-actions.jsonl --url https://opensearchurl

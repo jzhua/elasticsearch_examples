@@ -1,4 +1,4 @@
-#!venv/bin/python
+#!/usr/bin/env python3
 
 """
 Recreates the destination index and performs bulk indexing from the provided
@@ -18,9 +18,9 @@ from elasticsearch import Elasticsearch, helpers
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from qopt.util import Timer, file_length, load_json
 
-DEFAULT_CHUNK_SIZE = 10000
-DEFAULT_NUM_PROCS = 4
-DEFAULT_URL = 'http://elastic:changeme@localhost:9200'
+DEFAULT_CHUNK_SIZE = 1000
+DEFAULT_NUM_PROCS = 2
+DEFAULT_URL = 'http://admin:admin@localhost:9200'
 
 
 def recreate_index(es, index, config):
