@@ -1,0 +1,31 @@
+yak shaving setup notes from trying to get this elasticsearch notebook to run:
+
+desktop has python 3.10, which is incompatible with scikit-learn 0.2.x
+    update requirements.txt use scikit-learn 1.0.2
+
+matplotlib wants freetype
+    sudo apt-get install libfreetype6-dev
+        success
+
+opensearch sets up TLS by default, and ubuntu was being annoying
+    disable it using these instructions:
+https://opensearch.org/docs/2.4/security-plugin/configuration/disable/
+
+es library won't connect to opensearch
+    install override version of elasticsearch to 7.10
+
+elasticsearch 7.10 doesn't work python 3.9
+    install python 3.9, sigh. (via pyenv)
+
+installing python requires a bunch of dependencies
+    sudo apt install zlib1g zlib1g-dev libssl-dev libbz2-dev libsqlite3-dev
+
+proceeded to have dependency versioning hell with matplotlib
+    created a poetry project and let it do dependency resolution
+    specifically locked elasticsearch to 7.10.1
+
+indexing started running!
+
+indexing is failing: possibly due to cluster GC, and job is getting killed
+    drop parallelism in bulk-index to 2, batch size to 1000
+    this worked! both indexes are populated

@@ -15,9 +15,9 @@ wheel==0.35.*
 tqdm==4.38.*
 
 ## search
-elasticsearch==7.*
+elasticsearch==7.10
 
 ## data science
 matplotlib==3.2.*
-scikit-learn==0.23.*
+scikit-learn==1.0.2
 scikit-optimize==0.8.*
