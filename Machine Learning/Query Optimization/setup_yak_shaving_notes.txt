@@ -33,3 +33,16 @@ indexing is failing: possibly due to cluster GC, and job is getting killed
 a command like this works for indexing:
 
 time bin/bulk-index --index msmarco-document.defaults --config config/msmarco-document-index.defaults.json data/msmarco-document-index-actions.jsonl --url https://opensearchurl
+
+
+[ubuntu issue]
+Seeing stacktraces like
+      File "/home/jz/.pyenv/versions/3.9.14/lib/python3.9/ctypes/__init__.py", line 8, in <module>
+        from _ctypes import Union, Structure, Array
+    ModuleNotFoundError: No module named '_ctypes'
+
+need to (apt) install libffi-dev
+
+
+MSMARCO qrel files seem to be space delimited and not tab delimited
+- updating delimiter in qopt/trec.py

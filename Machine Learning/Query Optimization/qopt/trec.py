@@ -14,7 +14,7 @@ def load_qrels(filename):
     streaming very large QREL files.
     """
     with open(filename, 'r') as f:
-        reader = csv.reader(f, delimiter='\t')
+        reader = csv.reader(f, delimiter=' ')
         by_qid = defaultdict(dict)
         for q_id, _, doc_id, label in reader:
             by_qid[q_id][doc_id] = int(label)
